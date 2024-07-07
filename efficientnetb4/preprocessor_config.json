@@ -1,0 +1,29 @@
+{
+  "crop_size": {
+    "height": 289,
+    "width": 289
+  },
+  "do_center_crop": false,
+  "do_normalize": true,
+  "do_rescale": true,
+  "do_resize": true,
+  "image_mean": [
+    0.485,
+    0.456,
+    0.406
+  ],
+  "image_processor_type": "EfficientNetImageProcessor",
+  "image_std": [
+    0.47853944,
+    0.4732864,
+    0.47434163
+  ],
+  "include_top": true,
+  "resample": 0,
+  "rescale_factor": 0.00392156862745098,
+  "rescale_offset": false,
+  "size": {
+    "height": 380,
+    "width": 380
+  }
+}
