@@ -4,7 +4,17 @@
 
 ## 比赛结果：排名top 1.5%，获得银牌。
 
-成员：laplace\_zfg，noshakeplz，Emily，Yinghao，Wang。作者（laplace\_zfg）主要负责其中1D CNN+GRU和2D EfficientNet融合的多模态模型（多模态数据见后续，分为1D eeg与 2D spec）
+<div align="center">
+  <img src="images/fig-1.png" alt="HMS银牌"   width="65%"/>
+</div>
+
+
+
+成员：laplace\_zfg，noshakeplz，Emily，Yinghao，Wang。
+
+
+
+作者（laplace\_zfg）主要负责其中1D CNN+GRU和2D EfficientNet融合的多模态模型（多模态数据见后续，分为1D eeg与 2D spec）
 
 
 
@@ -24,7 +34,7 @@
 
 ## **特征工程：**
 
-​		 **依据专家经验对脑波时序数据进行通道筛选和作差，来反映不同脑区域活动信号，每个模型采用不同的数据处理方式。**
+依据专家经验对脑波时序数据进行通道筛选和作差，来反映不同脑区域活动信号，每个模型采用不同的数据处理方式。
 
 
 
@@ -135,7 +145,7 @@
 
 ### **第五部分（模型八）：（个人主要负责的部分）**
 
-​		2D spec（3，1536，512）频谱图数据与1D eeg（10000，8）时序数据，训练1D CNN+GRU和2D EfficientNet\_b0融合的多模态模型。1D卷积配合GRU时序层的子模型用于学习脑波时序数据的特征，2D EfficientNet\_b0用于捕获频谱图数据的特征，相较于原始时序数据，其频谱图数据包含了额外的频域数据信息，利用CNN网络有效学习。选择EfficientNet主要原因为不容易在较小的数据上过拟合，且验证后效果好于其他CNN和Transformer模型。最终将两个子网络的全连接层输出结果使用attention注意力机制进行特征融合，用来实现多模态网络之间的特征互补。
+2D spec（3，1536，512）频谱图数据与1D eeg（10000，8）时序数据，训练1D CNN+GRU和2D EfficientNet\_b0融合的多模态模型。1D卷积配合GRU时序层的子模型用于学习脑波时序数据的特征，2D EfficientNet\_b0用于捕获频谱图数据的特征，相较于原始时序数据，其频谱图数据包含了额外的频域数据信息，利用CNN网络有效学习。选择EfficientNet主要原因为不容易在较小的数据上过拟合，且验证后效果好于其他CNN和Transformer模型。最终将两个子网络的全连接层输出结果使用attention注意力机制进行特征融合，用来实现多模态网络之间的特征互补。
 
 
 
@@ -145,15 +155,15 @@
 
 ## **训练代码：**
 
-efficientnetb4: efficientnetb4预训练模型文件
+**efficientnetb4: efficientnetb4预训练模型文件**
 
-tf\_efficientnet\_b0.ns\_jft\_in1k: efficientnetb0模型文件
+**tf\_efficientnet\_b0.ns\_jft\_in1k: efficientnetb0模型文件**
 
-tf\_efficientnetv2\_s.in21k\_ft\_in1k: efficientnetv2模型文件
+**tf\_efficientnetv2\_s.in21k\_ft\_in1k: efficientnetv2模型文件**
 
-main\_code:训练代码
+**main\_code:训练代码**
 
-data\_convert:数据转换处理代码
+**data\_convert:数据转换处理代码**
 
 
 
@@ -165,7 +175,7 @@ data\_convert:数据转换处理代码
 
 ## **模型训练：**
 
-​		采用了OneCycleLR学习率迭代器以及AdamW优化器进行模型训练(早停法实验证明的最佳epoch)，一阶段训练完成后筛选训练数据中ground truth置信度更高的数据进行二阶段训练，从而强化模型对于高置信度的数据的拟合效果。最终将不同模型，不同数据训练得到的8个模型结果进行集成，得到最优的方案。
+采用了OneCycleLR学习率迭代器以及AdamW优化器进行模型训练(早停法实验证明的最佳epoch)，一阶段训练完成后筛选训练数据中ground truth置信度更高的数据进行二阶段训练，从而强化模型对于高置信度的数据的拟合效果。最终将不同模型，不同数据训练得到的8个模型结果进行集成，得到最优的方案。
 
 
 
