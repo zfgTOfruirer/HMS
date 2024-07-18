@@ -18,7 +18,7 @@
 
 
 
-## **项目背景：**
+## 项目背景：
 
 根据病人的脑电波时序信号数据以及对应的频谱图数据对其预测和分类癫痫发作以及其他类型的有害脑活动，共6类。
 
@@ -86,7 +86,7 @@
 
 4，左右拼接得到（516，533），并resize为（512，512）。
 
-<div style="text-align: center;">
+<div align="center">
   <img src="images/fig-6.png" alt="图像1" width="40%" style="display: inline-block;"/>
 </div>
 
@@ -96,7 +96,7 @@
 
 采用原始的raw eeg 20个电极的相邻电极脑电波数据做差，通过巴特沃斯带通滤波器低通滤波处理得到（10000，18）即为50s的18个特征的脑电波数据。
 
-<div style="text-align: center;">
+<div align="center">
   <img src="images/fig-7.png" alt="图像2" width="40%" style="display: inline-block;"/>
 </div>
 
@@ -118,7 +118,7 @@
 
 6，将其中的spec（128，256，4）与eeg to spec（128，256，4）左右拼接得到（512，512）；将其与zoom spec（512，512）、eeg to spec\_2（512，512），转为channel first ，并在第一维度堆叠得到（1，1526，512），第0维度堆叠3次得到2D spec（3，1536，512）。
 
-<div style="text-align: center;">
+<div align="center">
   <img src="images/fig-8-2D.png" alt="图像2" width="20%" style="display: inline-block;"/>
 </div>
 
@@ -130,7 +130,7 @@
 
 2，对数据滤波处理得到1D eeg（10000，8）即为50s的8个特征的脑电波数据。
 
-<div style="text-align: center;">
+<div align="center">
   <img src="images/fig-8-1D.png" alt="图像1" width="45%" style="display: inline-block;"/>
 </div>
 
