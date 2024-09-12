@@ -116,7 +116,7 @@
 
 5，将上述提取的官方的spec（128，256，4）、频谱转换的梅尔频谱eeg to spec（128，256，4）、4中合成的zoom spec（512，512）、频谱转换的scipy.signal模块的傅里叶变换得到eeg to spec\_2（512，512）。
 
-6，将其中的spec（128，256，4）与eeg to spec（128，256，4）左右拼接得到（512，512）；将其与zoom spec（512，512）、eeg to spec\_2（512，512），转为channel first ，并在第一维度堆叠得到（1，1526，512），第0维度堆叠3次得到2D spec（3，1536，512）。
+6，将其中的spec（128，256，4）与eeg to spec（128，256，4）左右拼接得到（512，512）；将其与zoom spec（512，512）、eeg to spec\_2（512，512），转为channel first ，并在第一维度堆叠得到（1，1536，512），第0维度堆叠3次得到2D spec（3，1536，512）。
 
 <div align="center">
   <img src="images/fig-8-2D.png" alt="图像2" width="20%" style="display: inline-block;"/>
